@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  {{>head}}
+  <link rel="stylesheet" href="css/product.css">
+
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar">
+
+
+
+  <!-- Navigation section -->
+
+  {{>navbar}}
+
+  <!-- PRODUCTS -->
+
+
+
+  <section id="products shop" class="shoes pt-5 products shop">
+
+    <div class="container mt-5">
+      <form action="/product" id="product" method="get">
+        <div id="styled-select">
+          <select class="form-select form-select-sm select-picker text-uppercase" aria-label=".form-select-sm example"
+            {{!-- onclick="document.getElementById('product').submit()" --}}
+            onchange='if(this.value != 0) { this.form.submit(); }' name="selectpicker">
+
+            <option selected>Search By Category</option>
+            <option id="product" name="women" class="all" value="all">all</option>
+            <option id="product" name="women" class="men" value="men">Mens</option>
+            <option id="product" name="women" class="women" value="women">Womens</option>
+            <option id="product" name="select" value="kids">Kids</option>
+          </select>
+        </div>
+        {{!-- <input type="submit" hidden /> --}}
+      </form>
+
+      <div class="card  rborder">
+        <div class="card-body text-center">
+          {{!-- {{#if products}} --}}
+          <h3 id="new" class="text-center heading-text text-uppercase ">
+            {{ products.category }} PRODUCTS
+          </h3>
+          {{!-- {{/if}} --}}
+        </div>
+      </div>
+
+
+
+
+      <div class="row row-cols-1 row-cols-md-4 pt-5 g-5 text-center">
+        {{#each products}}
+        <div class="col ">
+          <div class="card rborder aborder zoom h-100 shop-item">
+            <img src="images/{{this.image}}" class="card-img-top shop-item-img" alt="{{this.image}}">
+            <div class="card-body shop-item-details">
+
+              <h6 class="card-title shop-item-title">{{this.name}}</h6>
+              <h5 class="text-center price shop-item-price text-danger">₹ {{this.price}}</h5>
+              {{!-- <div class="dropdown show  ">
+
+                <button type="button" class="btn btn-outline-success dropdown-toggle" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  Size
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  {{#each size}}
+                  <li class="dropdown-item">{{this}}</li>
+                  {{/each}}
+                </ul>
+                
+              </div> --}}
+              
+              {{!-- <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                <option selected>Size</option>
+                {{#each size}}
+                <option value="{{this}}" {{selected this ../selectedState}}>{{this}}</option>
+                {{/each}}
+              </select> --}}
+              
+              <div>
+                <a href="/add-to-cart/{{this._id}}"
+                  class="btn shop-item-button btn-black text-uppercase mt-15 text-center">Add To
+                  Cart</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        {{/each}}
+
+
+      </div>
+  </section>
+
+
+  <bR></bR><bR></bR><bR></bR><bR>
+  {{>footer}}
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+    crossorigin="anonymous"></script>
+
+
+
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+        integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
+        integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
+        crossorigin="anonymous"></script> -->
+
+</body>
+
+
+</html>

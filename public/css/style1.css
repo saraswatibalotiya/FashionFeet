@@ -1,0 +1,404 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.rborder{
+    border: 0px;
+}
+
+.heading-text{
+    color: var(--text-black);
+    font-size: 2.5rem;
+    font-family: 'Staatliches', cursive;
+}
+:root{ 
+    /* Background Color */
+    --bg-danger:#f63440;
+    --bg-white:#fff;
+    --bg-light-white:#f5f5f5;
+
+    /* Text Color */
+    --primary-font:"Poppins", sans-serif;
+    --text-white:#fff;
+    --text-black:#121212; 
+    --text-danger:#f63440; 
+    --text-gray:#aaa;
+    --text-dark-gray:#777;
+}  
+body {
+    font-family: var(--primary-font);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.75rem;
+    background:var(--bg-white);
+    color: var(--text-black);
+    overflow-x:hidden;
+} 
+
+/* Custom CSS */
+a,
+a:hover{
+    text-decoration: none;
+}
+p{
+    margin:0;
+}
+.btn-danger{
+    background:var(--bg-danger);
+    border-color:var(--bg-danger);
+    padding:0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
+.btn-danger:hover{
+    color:var(--text-danger);
+    background:transparent; 
+}
+
+
+
+/* Navigation css */
+
+
+#header .navbar-nav .nav-item  .nav-link{
+    position: relative;
+    display: inline-block;
+    padding: .5rem 0 0.2rem;
+    font-size: 1rem;
+    color: black;
+    text-transform: uppercase;
+    transition: all 500ms ease-in-out;
+}
+
+#header .navbar-nav .nav-item  .nav-link::after{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 2px;
+    top: 100%;
+    left: 0;
+    background-color: var(--text-danger);
+    transition: transform 500ms;
+    transform: scaleX(0);
+    transform-origin: left;
+
+} 
+
+#header .navbar-nav .nav-item  .nav-link:hover::after{
+    transform:scaleX(1);
+    transform-origin: left;
+}
+
+
+#header .fixed-top{
+    box-shadow: 0 0.125rem 0.675rem rgb(0 0 0 / 5%);
+}
+
+#header .navbar-nav .nav-item .nav-link{
+    color:var(--text-black);
+    padding:0.5rem 1rem;
+    text-align: center;
+}
+
+
+
+#header .navbar-nav .nav-item .nav-link.active{
+    color:var(--text-danger);
+}
+#header .navbar-toggler-icon{
+    width:unset;
+    height:unset;
+}
+#header .navbar-toggler:focus{
+    box-shadow: none;
+}
+
+#header .navbar-brand{
+    color: var(--text-danger);
+    font-size: 2.0rem;
+    font-family: 'Lobster', cursive;
+}
+
+#header .ad-name :hover{
+    color: rgb(248, 246, 246);
+   
+}
+
+#header .nav-icon .ad{
+    text-decoration: none;
+    font-size: 1.0rem;
+}
+
+
+#header .nav-icon a{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+/* Carousel css */
+.home .carousel-item{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 90% center;
+    min-height: 550px;
+    position:relative;
+
+}
+.home.carousel-item img{
+    width: 1400px;
+    height: 400px;
+}
+
+.home .carousel-indicators [data-bs-target]{
+    background-color:var(--bg-danger);
+    width:2.5rem;
+    height:0.313rem;
+}
+
+.home .carousel-item img{
+    width: 1600px;
+    height: 650px;
+}
+.home .home-text {
+    top: 50%;
+    transform: translate(46%,-89%);
+} 
+.home .carousel-control-prev-icon,
+.home .carousel-control-next-icon{
+    height: 100px;
+    width: 100px;
+    background-image: none;
+}
+.home .carousel-control-next-icon:after
+{
+    content: '>';
+    font-size: 75px;
+    color: var(--bg-danger);
+}
+
+.home .carousel-control-prev-icon:after {
+    content: '<';
+    font-size: 75px;
+    color: var(--bg-danger);
+}
+
+.home .carousel-item .slide3 h3{
+    color: var(--text-black);
+}
+
+/* Products */
+
+.shop .container hr{
+    width: 300px;
+    border: 3px solid black;
+    border-color: var(--bg-danger);
+    transform: translate(490px,4px);
+    
+
+}
+
+.shop h3,
+.brands h3,
+.about h3{
+    color: var(--text-black);
+    font-size: 2.5rem;
+    font-family: 'Staatliches', cursive;
+}
+
+.shop .container .heading ,
+.brands .container .heading,
+.about .container .heading,
+.contact .container .heading{
+    border: 0px;
+}
+
+.shop .card-title a{
+    transform: translate(-12px,170px);
+}
+
+
+.shop .btn-danger{
+    padding:0.8rem 1.5rem;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: rgb(102, 48, 48);
+    background:transparent; 
+
+}
+.shop .btn-danger:hover{
+    background:var(--bg-danger);
+    border-color:var(--bg-danger);
+    padding:0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--bg-light-white);
+    
+}
+
+/* Category */
+
+.product2 .zoom{
+    overflow: hidden;
+}
+
+.product2 .zoom img{
+    transition: all 1.5s ease;
+}
+
+.product2 .zoom:hover img{
+    transform: scale(1.2);
+}
+
+/* About Us */
+
+.about p{
+    line-height: 190%;
+}
+
+.about .container .card-text{
+    background-color:  #ffe6e6;
+}
+
+/* Features */
+
+.features .btn-danger{
+    padding:0.4rem 1.5rem;
+   
+}
+
+/* Contact us */
+
+.address p{
+    font-weight: 400;
+  
+}
+
+.contact .contact-color{
+    background-color:  #ffe6e6;
+}
+
+
+
+/* .contact .container{
+   
+    background-color: rgba(250, 165, 128, 0.5);
+} */
+
+  /* footer */
+.full-footer{
+    background-color:  	 #e0e0eb;
+ 
+  
+   
+}
+
+/* ==================================================== LOGIN =================================================== */
+.login .card .register a:hover{
+    color:red;
+}
+/* 
+.login .card input{
+
+    border-radius: 20px;
+} */
+
+/* ==================================================== navbar badge ================================================ */
+
+.badge{
+    color: black;
+    border: black;
+    background: #e9ecef;
+    transform: translate(-3px, -11px);
+    border-radius: 58px;
+}
+
+/* ======================================================= cart ============================================================= */
+.cart .cart-input-qty input::-webkit-outer-spin-button,
+.cart .cart-input-qty input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.cart .cart-input-qty  input[type=number] {
+  -moz-appearance: textfield;
+  width:30px;
+  border: none;
+  text-align: center;
+}
+
+.cart .cart-input-qty .fas{
+    color: var(--text-danger);
+    border: none;
+
+}
+
+.cart .remove-item a{
+    transform: translate(10px, -35px);
+}
+
+/* ==================================== cart ====================================================== */
+.cart-quantityy h5{
+    transform: translate(55px, -1px);
+
+}
+
+.cart-price-name h5{
+    transform: translate(-200px, -1px);
+}
+
+.total{
+    text-align: right;
+}
+
+/* ================================================== icons in admin ====================================================== */
+
+.dashboard a,
+a:hover{
+    text-decoration: none;
+    color: black;
+
+}
+.dashboard .btn-outline-info  {
+    color: black;
+    background-color: cornsilk;
+}
+
+.dashboard .btn-outline-info :hover {
+    color: rgb(233, 21, 21);
+}
+
+.adminNav .logout{
+    transform: translate(1100px, 1px);
+    color: white;
+}
+/* * Custom CSS */
+/* .dashboard a,
+a:hover{
+    text-decoration: none;
+} */ 
+
+/* =========================================== select option ======================================================================== */
+#styled-select select {
+    background: transparent;
+    width: 260px;
+    padding: 5px;
+    font-size: 15px;
+    line-height: 1;
+    border: 0;
+    border-radius: 0;
+    height: 34px;
+    -webkit-appearance: none;
+    font-family:helvetica-roman;
+    color:#5e5c5c;   
+     background-color: rgba(0, 0, 0, 0);
+     -webkit-appearance: none;
+     border: none;
+     text-indent: 0.01px;
+     text-overflow: '';
+ }

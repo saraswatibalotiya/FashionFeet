@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>head}}
+</head>
+
+<body>
+    {{!-- navbar --}}
+    {{>adminNavbar}}
+
+    {{!-- Details --}}
+
+    <section class="dashboard features mt-4">
+        <div class="container mt-5 text-center">
+            <div class="row row-cols-1 row-cols-md-3 g-3">
+                <div class="col-sm-6">
+                    <div class="card mt-5 btn btn-outline-info  border border-dark text-uppercase">
+                        <a href="/adminOrders">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">
+
+                                    <span><i class="bi bi-shop-window"></i></span>
+
+                                    <h6 class="card-text">Order View</h6>
+                                </h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card mt-5 btn btn-outline-info border border-dark text-uppercase">
+                        <a href="/admin">
+                            <div class="card-body ">
+                                <h5 class="card-title text-center">
+
+                                    <span><i class="bi bi-bag "></i></span>
+
+                                </h5>
+                                <p class="card-text">Products</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card mt-5  btn btn-outline-info border border-dark text-uppercase ">
+                        <a href="/add-product">
+                            <div class="card-body  ">
+                                <h5 class="card-title text-center">
+                                    <span><i class="fas fa-pencil-alt"></i></span>
+                                </h5>
+                                <p class="card-text">add Products</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card mt-5  btn btn-outline-info border border-dark text-uppercase ">
+                        <a href="/adminContact">
+                            <div class="card-body  ">
+                                <h5 class="card-title text-center">
+                                    <span><i class="fas fa-phone-alt"></i></span>
+                                </h5>
+                                <p class="card-text">User Who Contacted</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

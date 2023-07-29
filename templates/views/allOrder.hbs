@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {{>head}}
+</head>
+
+<body>
+    {{!-- navigation bar --}}
+
+    {{>navbar}}
+
+    {{!--Order List --}}
+    <section id="about" class="about">
+        <div class="container pt-5">
+            <div class="card  heading ">
+                <div class="card-body text-center">
+                    <h3 id="new" class="text-center mt-4">All Orders</h3>
+                </div>
+            </div>
+            {{#if messages.success}}
+            
+            <div class="alert alert-success" role="alert">
+                {{messages.success}}
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success: close" aria-label="Close">
+                    <use xlink:href="#check-circle-fill" />
+            </div>
+            {{/if}}
+            <div class="card card-text  mt-4 shadow">
+                <div class="card-body mb-4">
+                    {{#if orders.length}}
+
+                    <div>
+                        <table class="table table-bordered  border-dark table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Orders</th>
+                                    <th scope="col">Total</th>
+                                    <th scope="col">Address</th>
+                                    <th scope="col">Contact No</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Status</th>
+                                </tr>
+                            </thead>
+                            {{#each orders}}
+                            <tbody>
+                                <tr>
+                                    <td scope="row">
+                                        {{this._id}}
+                                        {{#each this.items}}
+                                        <div>
+
+                                            <p>
+                                                <img src="/images/{{this.item.image}}" height="50px" width="50px"
+                                                    alt="{{this.item.image}}">
+                                                {{this.item.name}}&nbsp&nbsp ₹{{this.price}}&nbsp&nbsp
+                                                -{{this.qty}}&nbsp Pcs
+                                            </p>
+                                        </div>
+                                        {{/each}}
+
+                                    </td>
+                                    <td>{{this.cart.totalPrice}}</td>
+                                    <td>{{this.address}}</td>
+                                    <td>{{this.mobile_no}}</td>
+                                    <td>{{formatDate this.createdAt "DD-MM-YYYY"}}</td>
+                                    <td>{{this.status}}</td>
+                                </tr>
+                            </tbody>
+                            {{/each}}
+                        </table>
+                    </div>
+                    {{else}}
+                    <div>
+
+                        <div class=" text-center mt-5">
+                            <h2 class="text-center ">NO Orders</h2>
+                        </div>
+
+
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </section>
+    <br><br><br><br><br>
+
+    {{!-- footer --}}
+    {{>footer}}
+
+    <script src="../../public/js/admin.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+
+
+</body>
+
+</html>

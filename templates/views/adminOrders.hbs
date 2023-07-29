@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>head}}
+    {{!--
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script> --}}
+    {{!--
+    <script src="/js/admin.js"></script> --}}
+</head>
+
+<body>
+
+    {{!-- navbar --}}
+
+    {{>adminNavbar}}
+
+
+    {{!-- orders list--}}
+    <section class="orders ">
+        <div class="container-fluid mx-auto pt-12">
+            <h1 class="text-center">All orders</h1>
+            {{#if messages.error}}
+            <div class="alert alert-light text-danger">
+                <p>{{ messages.error }}</p>
+            </div>
+            {{/if}}
+            <table class="table  table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Orders</th>
+                        <th scope="col">Customer</th>
+                        <th scope="col">Products</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Save</th>
+
+
+                    </tr>
+                </thead>
+                {{#each orders}}
+                <tbody id="OrderTableBody">
+                    <tr>
+                        <td scope="row">
+                            <p>{{this._id}}</p>
+                        </td>
+                        <td>{{this.customerId.name}}</td>
+                        <td>
+                            {{#each this.items}}
+                            <p>{{this.item.name}}&nbsp&nbsp ₹{{this.price}}&nbsp&nbsp -{{this.qty}}&nbsp Pcs</p>
+                            {{/each}}
+                        </td>
+                        <td>₹&nbsp{{this.cart.totalPrice}}</td>
+                        <td>{{this.address}}</td>
+                        {{!-- <td>{{this.cart.status}}</td> --}}
+                        <td>{{formatDate this.createdAt "DD-MM-YYYY"}}</td>
+                        <form action="/adminOrders" method="post">
+                            <input type="hidden" name="oid" value="{{this._id}}">
+                            <td>
+                                <select class="form-select form-select-sm" aria-label=".form-select-sm example"
+                                    name="status">
+
+                                    <option value="order_placed" {{#if_equal this.status 'order_placed' }} selected
+                                        {{else}} '' {{/if_equal}}>Order Placed</option>
+                                    <option value="Confirmed" {{#if_equal this.status 'Confirmed' }} selected
+                                        {{else}} '' {{/if_equal}}>Confirmed</option>
+                                    <option value="Delivered" {{#if_equal this.status 'Delivered' }} selected
+                                        {{else}} '' {{/if_equal}}>Delivered</option>
+                                    <option value="Completed" {{#if_equal this.status 'Completed' }} selected
+                                        {{else}} '' {{/if_equal}}>Completed</option>
+                                    <option value="Cancelled" {{#if_equal this.status 'Cancelled' }} selected
+                                        {{else}} '' {{/if_equal}}>Cancelled</option>
+                                </select>
+
+                            </td>
+                            <td>
+                                <button type="submit"
+                                    class="fas fa-check-circle btn btn-success text-white">SAVE</button>
+                            </td>
+                        </form>
+                    </tr>
+                </tbody>
+                {{/each}}
+                {{!-- <tbody id="orderTableBody">
+
+                </tbody> --}}
+            </table>
+
+        </div>
+
+    </section>
+    {{!--
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script> --}}
+    {{!--
+    <script src="/js/admin.js"></script> --}}
+</body>
+
+</html>

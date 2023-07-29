@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>head}}
+    {{!--
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script> --}}
+    {{!--
+    <script src="/js/admin.js"></script> --}}
+</head>
+
+<body>
+
+    {{!-- navbar --}}
+
+    {{>adminNavbar}}
+
+
+    {{!-- orders list--}}
+    <section class="orders ">
+        <div class="container-fluid mx-auto pt-12">
+            <h1 class="text-center">User Messages</h1>
+            <table class="table  table-striped table-bordered ">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email Id</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Message</th>
+                    </tr>
+                </thead>
+                {{#each users}}
+                <tbody >
+                    <tr>
+                        <td>{{this.name}}</td>
+                        <td>{{this.email}}</td>
+                        <td>{{this.address}}</td>
+                        <td>{{this.queries}}</td>
+                    </tr>
+                </tbody>
+                {{/each}}
+            </table>
+        </div>
+    </section>
+</body>
+
+</html>

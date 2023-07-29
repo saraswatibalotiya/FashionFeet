@@ -1,0 +1,58 @@
+
+[{
+    "_id": {
+      "$oid": "5eee651f739f8c674fd736ee"
+    },
+    "name": "ETNIES MEN WHITE SPORTS SHOES",
+    "image": "images/pic8.png",
+    "price": "1999"
+  },{
+    "_id": {
+      "$oid": "5eee6671a27a66807cf2bea3"
+    },
+    "name": "POWER BLUE RUNNING SHOES FOR MEN",
+    "image": "images/pic6.png",
+    "price": "2499"
+  },{
+    "_id": {
+      "$oid": "5eee6692a27a66807cf2bea4"
+    },
+    "name": "NORTH STAR BLUE CASUAL SHOES FOR MEN",
+    "image": "images/NORTH STAR BLUE CASUAL SHOES FOR MEN.jpg",
+    "price": "999"
+  },{
+    "_id": {
+      "$oid": "5eee66a5a27a66807cf2bea5"
+    },
+    "name": "NIKE RED SPORTS SHOES FOR MEN",
+    "image": "images/pic13.png",
+    "price": "1499"
+  },{
+    "_id": {
+      "$oid": "5eee66c4a27a66807cf2bea6"
+    },
+    "name": "ETNIES BROWN ETHNIC SHOES FOR MEN",
+    "image": "images/ethnic Brown shoes.jpg",
+    "price": "999"
+  },{
+    "_id": {
+      "$oid": "5eee66cfa27a66807cf2bea7"
+    },
+    "name": "HUSH PUPPIES BLACK FORMAL SHOES FOR MEN",
+    "image": "images/BLACK_SHOES.png",
+    "price": "1999"
+  },{
+    "_id": {
+      "$oid": "5eee66eea27a66807cf2bea8"
+    },
+    "name": "REBOOK BROWN CHAPPAL FOR MEN",
+    "image": "images/BROWN_CHAPPAL.png",
+    "price": "599"
+  },{
+    "_id": {
+      "$oid": "5eee6717a27a66807cf2bea9"
+    },
+    "name": "REBOOK RUNNY BLUE FLIP FLOP FOR MEN",
+    "image": "images/FLIPFLOP.png",
+    "price": "399"
+  }]

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {{>head}}
+</head>
+
+<body>
+    {{!-- navigation bar --}}
+
+    {{>navbar}}
+
+    {{!-- login form --}}
+
+    <section id="register login" class="register login about">
+        <div class="container pt-5 mb-4">
+            <div class="card  heading ">
+                <div class="card-body mt-4 text-center">
+                    <h3 id="new" class="text-center pt-4">REGISTER</h3>
+                </div>
+            </div>
+            <div class="card card-text  mt-4 shadow">
+                <div class="card-body mb-4 col-12">
+                    {{#if messages.error}}
+                    {{!-- {{#if (typeof alert != 'undefined') }} --}}
+                    {{!-- {{#each messages.error}} --}}
+                    {{!-- {{#if messages.error}} --}}
+                    <div class="alert alert-light text-danger text-center">
+                        {{ messages.error }}
+                    </div>
+                    {{!-- {{/if}} --}}
+
+                    {{!-- {{/each}} --}}
+                    {{/if}}
+                    <form class="form mt-3 " action="/register" method="POST">
+                        <div class="mt-3 mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" value="{{ messages.name}}" placeholder="Enter Your Name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="Email1" name="email"
+                                value="{{ messages.email}}" placeholder="Enter Your Email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Password1" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="Password1" name="password"
+                            placeholder="Enter Your Password">
+                            <span id="Password11" class="text-danger font-weight-bold"> </span>
+                        </div>
+
+                        <div class="text-center">
+                            <button class="btn btn-primary text-center" type="submit " value="register">CREATE
+                                ACCOUNT</button>
+
+
+                        </div>
+
+                        <div class="register pt-4  text-center">
+                            <a class="link-primary" href="/login">Already Have An Account ?</a>
+
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{!-- footer --}}
+    {{>footer}}
+
+
+</body>
+
+</html>

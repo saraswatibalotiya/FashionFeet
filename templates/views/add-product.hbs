@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>head}}
+</head>
+
+<body>
+    {{>adminNavbar}}
+
+    <div class="container">
+        <h2 class="text-center">ADD PRODUCT</h2>
+        <div class="card card-text  mt-4 shadow">
+            <div class="card-body mb-4 col-12">
+                
+                {{#if messages.error}}
+                <div class="alert alert-danger text-dark text-center">
+                    <p>{{ messages.error }}</p>
+                </div>
+                {{/if}}
+                <form action="/add-product" method="POST">
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control" id="pname" name="name" value="{{products.name}}"
+                            placeholder="Enter Product Name">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Category
+                            (Men,Womens,Kids)
+                        </label>
+                        <input type="text" class="form-control" id="category" name="category"
+                            value="{{products.category}}" placeholder="Enter Product Category">
+                    </div>
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">Upload Image</label>
+                        <input class="form-control" type="file" id="image" name="image" value="{{products.image}}">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Price</label>
+                        <input type="text" class="form-control" id="price" name="price" value="{{products.price}}"
+                            placeholder="Enter Product Price">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Stock</label>
+                        <input type="text" class="form-control" id="stock" name="stock" value="{{products.stock}}"
+                            placeholder="Enter Product Stock">
+                    </div>
+                    <div>
+                        <button class="btn btn-primary text-center" type="submit " value="register">ADD PRODUCT</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

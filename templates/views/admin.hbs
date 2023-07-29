@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>head}}
+
+</head>
+
+<body>
+    <!-- include header -->
+    {{>adminNavbar}}
+    <!-- /include header -->
+
+
+    <!-- Main Site -->
+    <main id="site-main">
+        <div class="container">
+            {{#if messages.success}}
+            <div class="alert alert-success" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success: close" aria-label="Close">
+                    <use xlink:href="#check-circle-fill" />
+                </svg>
+                {{messages.success}}
+            </div>
+            {{/if}}
+            <h2 class="text-center">ALL PRODUCTS</h2>
+            <!-- form handling -->
+            <form action="/admin" method="POST">
+                <table class="table table-bordered table-hover table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Image</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                            <th>Action</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each products}}
+                        <tr>
+
+                            <td>{{this._id}}</td>
+                            <td>{{this.name}}</td>
+                            <td>{{this.category}}</td>
+
+                            <td class="text-center">
+                                <img src="images/{{this.image}} " width="100px" height="100px" alt="{{this.image}}">
+                            </td>
+                            <td>{{this.price}}</td>
+                            <td>{{this.stock}}</td>
+                            <td>
+                                <a href="/update-product/{{this._id}}" class="btn border-shadow update">
+                                    <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                                </a>
+
+                                {{#if_equal this.id orders.item._id}}
+                                <a href="/admin/delete/{{this._id}}"
+                                    onclick="return confirm('This product is ordered by cutomers?');"><i
+                                        class="fa fa-trash fa-lg text-dark" aria-hidden="true"></i></a>
+                                {{orders.item._id}}
+                                {{else}}
+                                <a href="/admin/delete/{{this._id}}"
+                                    onclick="return confirm('Are you sure to delete this Product ? {{orders.item._id}}');"><i
+                                        class="fa fa-trash fa-lg text-dark" aria-hidden="true"></i></a>
+
+                                {{/if_equal}}
+
+                            </td>
+
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </main>
+    <!-- /Main Site -->
+
+
+    <!-- include footer -->
+
+    <!-- /include footer -->
+</body>
+
+</html>

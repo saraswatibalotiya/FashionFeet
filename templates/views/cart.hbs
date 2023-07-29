@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {{>head}}
+
+
+    {{!--
+    <link rel="stylesheet" href="css/style1.css"> --}}
+    {{!--
+    <link rel="stylesheet" href="css/cart.css"> --}}
+
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar">
+
+
+
+    <!-- Navigation section -->
+
+    {{>navbar}}
+
+
+    <!-- CART -->
+
+
+    <section class="container-fluid content-section cart mt-5">
+        <div class="card  heading rborder mt-5">
+            <div class="card-body text-center rborder mt-3">
+                <h3 id="new" class="text-center text-dark mt-4">CART</h3>
+            </div>
+            {{#if messages.errorCart}}
+            <div class="alert alert-light text-danger text-center">
+                {{ messages.errorCart }}
+            </div>
+            {{/if}}
+        </div>
+        {{# if product}}
+        <div class="col-md-12 col-lg-12 col-11 mx-auto main_cart mb-lg-0 mb-5 shadow">
+            <div class="card p-4">
+                <div class="heading d-md-none d-lg-block">
+                    <div class="cart-row mt-2 text-center row">
+                        {{!-- <h2 class="py-4 font-weight-bold d-none d-lg-block d-xl-block">Cart (2 items)</h2> --}}
+                        <span
+                            class="cart-item-name cart-header cart-column d-none  d-none d-lg-block d-xl-block col text-danger mb-5">
+                            <h5>ITEM</h5>
+                        </span>
+                        <span
+                            class="cart-quantityy cart-header cart-column d-none d-lg-block d-xl-block col text-danger mb-5">
+                            <h5>QUANTITY</h5>
+                        </span>
+                        <span
+                            class="cart-price-name cart-header cart-column d-none d-lg-block d-xl-block col text-danger mb-5">
+                            <h5>PRICE</h5>
+                        </span>
+
+                    </div>
+
+
+                </div>
+                <div class="row">
+
+                    <!-- cart images div -->
+                    {{#each product}}
+                    <div
+                        class="col-md-2 col-11 mx-auto bg-light d-flex justify-content-center align-items-center shadow product_img ">
+                        <img src="images/{{this.item.image}}" class="img-fluid" alt="{{this.item.image}}">
+                    </div>
+                    <!-- cart product details -->
+                    <div class="col-md-4 col-11 mx-auto px- mt-2">
+                        <div class="row">
+                            <!-- product name  -->
+                            <div class="col-11 card-title">
+                                <h3 class="mb-6 product_name">{{this.item.name}}</h3>
+                                {{!-- <p class="mb-2">SIZE - {{this.item.size}}</p> --}}
+                                {{!-- <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                    <option selected>Size</option>
+                                    {{#each this.item.size}}
+                                    <option value="{{this}}" {{selected }}>{{this}}</option>
+                                    {{/each}}
+                                </select> --}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-11 mx-auto px- mt-2 cart-input-qty">
+                        <ul class="pagination pagination-sm">
+                            <li class="page-item rborder"><a class="page-link" href="/increase/{{this.item._id}}"><i
+                                        class="fas fa-plus"></i></a></li>
+                            <li class="page-item active" aria-current="page">
+                                <input class="  justify-content-center col mb-3" type="number" readonly
+                                    value="{{this.qty}}">
+                            </li>
+                            <li class="page-item"><a class="page-link" href="/reduce/{{this.item._id}}"><i
+                                        class="fas fa-minus"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2 col-11 mx-auto px- mt-2">
+                        <div class=" cart-quantity col-6   justify-content-end ">
+                            <h5 class="mb-3">₹ {{this.price}}</h5>
+
+                        </div>
+                    </div>
+
+                    <div class="remove-item col-md-2 col-11 mx-auto px- mt-2">
+                        <div class=" col-6   justify-content-end ">
+                            <a href="/remove/{{this.item._id}}" class="btn btn-danger text-uppercase mt-4">REMOVE</a>
+                        </div>
+                    </div>
+                    <hr>
+                    {{/each}}
+                </div>
+
+            </div>
+
+        </div>
+        {{#if user}}
+
+        <form action="/orders" method="POST">
+            <div class="container text-center" id="orderDetails">
+                {{#if messages.error}}
+                <div class="alert alert-light text-center text-danger">
+                    {{ messages.error }}
+                    {{!-- <p>{{this}}</p>
+                    {{/each}} --}}
+                </div>
+                {{/if}}
+
+                <div class="row mt-5">
+                    {{!-- px means padding at left and right --}}
+                    <div class="col-md-6 col-8 mx-auto px- mt-2">
+                        <input type="text" class="form-control" id="mobile_no" name="mobile_no"
+                            placeholder="Enter Your Phone Number">
+                    </div>
+                    <div class="col-md-6 col-8 mx-auto px- mt-2">
+                        <input type="text" class="form-control" id="address" name="address"
+                            placeholder="Enter Your Address">
+                    </div>
+                </div>
+
+                {{!-- <div class="text-center mt-5 ">
+                    <button class="btn btn-info text-light " type="submit">Order Now</button>
+                </div> --}}
+                <section id="contact" class="contact ">
+                    <div class="container pt-5">
+                        <div class="card  heading ">
+                            <div class="card-body text-center ">
+                                {{!-- <h3 id="new" class="text-center heading-text mt-4">Order Summary</h3> --}}
+                            </div>
+                        </div>
+                        <div class="card contact-color shadow">
+                            <div class=" card-body mt-3 ">
+                                <div class="container">
+                                    <div class="row text-center">
+                                        <div class="col-12">
+                                            <h3>Order Summary</h3>
+                                            <hr>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- contact form -->
+                                <section class="form-section">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <h5>Total Items</h5>
+                                            </div>
+                                            <div class="col-md-6 address text-center">
+                                                <h5>{{totalQty}}</h5>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h5>Total Price</h5>
+                                            </div>
+                                            <div class="col-md-6 address text-center">
+                                                <h5>{{totalPrice}}</h5>
+                                            </div>
+                                            <div class="text-center mt-5 ">
+                                                <button class="btn btn-info text-light " type="submit">Order
+                                                    Now</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </section>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </form>
+
+        {{else}}
+        <div class="text-center mt-5">
+            <a class="btn btn-info text-light" type="submit" href="/login">Login To Order</a>
+        </div>
+        {{/if}}
+
+
+        {{else}}
+        <div class="row text-center mt-5">
+            <div class=" text-center">
+                <h2 class="text-center ">NO ITEMS IN CART 😔</h2>
+            </div>
+        </div>
+        {{/if}}
+
+    </section>
+
+
+
+
+    {{!--
+    <script src="js/cart.js"></script> --}}
+
+
+
+
+    <bR></bR><bR></bR>
+    {{>footer}}
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+        integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
+        integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
+        crossorigin="anonymous"></script> -->
+
+</body>
+
+</html>

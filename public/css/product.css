@@ -1,0 +1,38 @@
+
+.btn-black{
+    background:#000000;
+    border-color:#000000;
+    padding:0.4rem 1.2rem;
+    font-size: 1rem;
+    font-weight: 300;
+    color: white;
+}
+.btn-black:hover{
+    color:	 black;
+    background:transparent; 
+}
+
+
+/* Remove border form card  */
+.rborder{
+    border: 0px;
+}
+
+
+/* Add Border on Card Hover */
+.aborder:hover{
+    border: 0.5px solid black;
+}
+
+/*---------------- image zoom effect ----------------*/
+.zoom{
+    overflow: hidden;
+}
+.zoom img{
+    transition: all 1.5s ease;
+}
+.zoom:hover img{
+    transform: scale(0.9);
+}
+
+/* --------------------------------------------------- */

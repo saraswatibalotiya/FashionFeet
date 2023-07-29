@@ -1,0 +1,31 @@
+<section class="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
+        <div class="container ">
+            <a class="navbar-brand" href="/adminDashboard">ADMIN</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarNav navbarSupportedContent">
+                <div class="text-center nav-icon d-flex adminNav">
+                    {{#if user }}
+                    {{!-- for post request of logut we have to create a form with post --}}
+                    <form class="d-flex"  id="logout" action="/logout" method="POST">
+                        <button type="button" class=" mx-3 text-center me-2 logout btn btn-success"
+                            onclick="document.getElementById('logout').submit()">Logout</button>
+                        {{!-- <a class="fas fa-sign-out-alt mx-3 text-center me-2 logout btn-info"
+                            onclick="document.getElementById('logout').submit()" href="#">
+                            <h6>Logout</h6>
+                            </a> --}}
+                    </form>
+                    {{else}}
+                    <a class="fas fa-user mx-3 text-center" href="/login"></a>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </nav>
+</section>
+
+ 
+ 

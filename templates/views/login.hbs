@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {{>head}}
+    <!-- Required meta tags -->
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar">
+
+    {{>navbar}}
+
+    {{!-- login form --}}
+
+    <section id="login" class="login about">
+        <div class="container pt-5">
+            <div class="card  heading ">
+                <div class="card-body mt-4 text-center">
+                    <h3 id="new" class="text-center pt-4">LOGIN</h3>
+                </div>
+            </div>
+            <div class="card card-text  mt-4 shadow">
+                <div class="card-body mb-4">
+                    {{#if messages.success}}
+                    <div class="alert alert-success" role="alert">
+                        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success: close"
+                            aria-label="Close">
+                            <use xlink:href="#check-circle-fill" />
+                        </svg>
+                        {{messages.success}}
+                    </div>
+                    {{/if}}
+                    {{#if messages.error}}
+                    <div class="alert alert-light text-center text-danger">
+                        {{ messages.error }}
+                        {{!-- <p>{{this}}</p>
+                        {{/each}} --}}
+                    </div>
+                    {{/if}}
+
+                    <form class="form " action="/login" method="POST">
+                        {{!-- {{ #if messages.error}}
+                        <span class="text-red-500 text-sm">
+                            {{messages.error}}
+                        </span>
+                        {{/if}} --}}
+
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email1" autocomplete="off" name="email"
+                                placeholder="Enter Your Email">
+                            <span id="emailtext" class="text-danger font-weight-bold"> </span>
+
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" autocomplete="off"
+                                name="password" placeholder="Enter Your Password">
+                        </div>
+
+                        <div class="text-center">
+                            <button class="btn btn-primary text-center loginBtn" type="submit"
+                                autocomplete="off">Submit</button>
+
+                        </div>
+                        <div class="register pt-4  text-center">
+                            <a class="link-primary" href="/register">Don't Have Account ?</a>
+
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{!-- footer --}}
+    {{>footer}}
+    {{!--
+    <script src="/js/login.js" async></script> --}}
+
+</body>
+
+</html>

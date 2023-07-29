@@ -1,0 +1,93 @@
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+
+<section class="header" id="header">
+    <nav class="navbar navbar-expand-lg bg-white fixed-top shadow-sm p-3 mb-5 bg-white rounded">
+        <div class="container">
+            <a class="navbar-brand" href="/">Fashion Feet</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="fas fa-bars navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto text-center ">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/product">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/#contact">Contact</a>
+                    </li>
+                </ul>
+                <div class="text-center nav-icon">
+                    <a class="fas fa-shopping-bag mx-3 text-center" href="/cart">
+                        <span class="badge badge-secondary ">{{session.cart.totalQty}}</span>
+                    </a>
+                </div>
+                <div class="text-center text-uppercase">
+                    {{#if user }}
+                    <div class="dropdown show  ">
+                        <a class="btn btn-outline-success  btn-sm dropdown-toggle fas fa-user mx-3 text-center ad ad-name"
+                            href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            {{user.name}}
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item ad" href="/allOrder">Order History</a>
+                            <form id="logout" action="/logout" method="POST">
+                                <a class="dropdown-item ad" onclick="document.getElementById('logout').submit()"
+                                    href="#">Logout</a>
+                            </form>
+                            {{!-- <a class="dropdown-item" href="#">Logout</a> --}}
+                        </div>
+                    </div>
+                    {{!-- <form id="logout" action="/logout" method="POST">
+                        <label for="user">{{this.user.name}}</label>
+                        <select name="user" id="user" onchange="this.form.submit">
+                            <option value="/allOrder">Order History</option>
+                            <option value="#" onclick="document.getElementById('logout').submit()">Logout</option>
+                        </select>
+                        <br><br>
+
+                    </form> --}}
+
+                    {{!-- <a class="fas fa-user mx-3 text-center" href="/login"></a> --}}
+                    {{!-- for post request of logut we have to create a form with post --}}
+
+                    {{!-- <form id="logout" action="/logout" method="POST">
+                        <a class="fas fa-sign-out-alt mx-3 text-center"
+                            onclick="document.getElementById('logout').submit()" href="#">Logout</a>
+                        <a class="text-center bi bi-card-checklist text-dark mx-3" href="/allOrder">Order History</a>
+
+                    </form> --}}
+                    {{else}}
+                    <div class="nav-icon">
+                        <a class="fas fa-user mx-3 text-center" href="/login"></a>
+                    </div>
+                    {{/if}}
+                </div>
+
+
+
+            </div>
+
+
+
+
+        </div>
+    </nav>
+</section>
