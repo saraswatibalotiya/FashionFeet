@@ -40,7 +40,7 @@ Screenshots :
 
 ![image](https://github.com/saraswatibalotiya/FashionFeet/assets/54326277/0644de7e-2d34-4cde-9437-c9e0fdcd9d48)
 
-![image](https://github.com/saraswatibalotiya/FashionFeet/assets/54326277/d05ff341-8113-44b5-a4cc-5faf3bfc93cb)
+![image](https://github.com/saraswatibalotiya/FashionFeet/assets/54326277/b936113b-404e-4b4d-9af4-68c5a28910f5)
 
 ![image](https://github.com/saraswatibalotiya/FashionFeet/assets/54326277/0f9b2f4d-02ac-4f17-8d3e-a50760e5932e)
 
